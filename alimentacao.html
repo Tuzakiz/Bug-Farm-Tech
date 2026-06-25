@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BugFarm Tech - Alimentação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="conteudo-principal">
+    <header>
+        <h1>Registro de Alimentação Diária</h1>
+        <p>Preencha os dados do trato biológico. Registros são imutáveis para fins de auditoria sanitária.</p>
+    </header>
+
+    <div id="alimentacao-feedback"></div>
+
+    <section>
+        <h2>Lançamento de Nova Dieta</h2>
+        <form id="form-alimentacao">
+            <fieldset>
+                <legend>Detalhes do Trato</legend>
+                <div class="grupo-input">
+                    <label for="lote-alvo">Lote <span style="color:red;">*</span></label>
+                    <select id="lote-alvo" name="lote_alvo" required>
+                        <option value="" disabled selected>-- Escolha um lote ativo --</option>
+                    </select>
+                </div>
+                <div class="grupo-input">
+                    <label for="data-trato">Data e Hora do Trato <span style="color:red;">*</span></label>
+                    <input type="datetime-local" id="data-trato" name="data_trato" required>
+                </div>
+                <div class="grupo-input">
+                    <label for="tipo-dieta">Fórmula Nutricional <span style="color:red;">*</span></label>
+                    <select id="tipo-dieta" name="tipo_dieta" required>
+                        <option value="" disabled selected>-- Selecione a fórmula --</option>
+                        <option value="racao_base">Ração Proteica Padrão (Manutenção)</option>
+                        <option value="estimulador_crescimento">Mix Crescimento Acelerado</option>
+                        <option value="suplemento_calcio">Suplemento de Cálcio (Pré-Colheita)</option>
+                    </select>
+                </div>
+                <div class="grupo-input">
+                    <label for="quantidade-kg">Quantidade Consumida (Kg) <span style="color:red;">*</span></label>
+                    <input type="number" id="quantidade-kg" name="quantidade_kg" min="0.01" step="0.01" placeholder="Ex: 2.50" required>
+                </div>
+                <div class="grupo-input">
+                    <label for="obs-rastreabilidade">Observações de Rastreabilidade</label>
+                    <textarea id="obs-rastreabilidade" name="obs_rastreabilidade" rows="3" placeholder="Comportamento alimentar, rejeição de dieta, etc."></textarea>
+                </div>
+            </fieldset>
+            <div style="display:flex;gap:10px;margin-top:10px;">
+                <button type="reset">Limpar</button>
+                <button type="submit">Gravar Alimentação</button>
+            </div>
+        </form>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Histórico Recente de Tratos</h2>
+        <table id="tabela-historico-alimentacao">
+            <thead>
+                <tr>
+                    <th>Data / Hora</th>
+                    <th>Lote</th>
+                    <th>Dieta</th>
+                    <th>Qtd (Kg)</th>
+                    <th>Operador</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="5" style="text-align:center;padding:20px;color:rgb(154,154,154);">Carregando histórico...</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+</main>
+</body>
+</html>

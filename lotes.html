@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BugFarm Tech - Gestão de Lotes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/1518998115464646907/1519053796330835989/image.png?ex=6a3c2897&is=6a3ad717&hm=b153044a63b88095b1882a178318b01d886a221ba22b311fffdb2baa599b2258&animated=true">
+</head>
+<body>
+<div class="container">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar">
+
+        <div class="TABBER">
+            <button id="but" class="Noutline btn-toggle">
+                <img id="logo" src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/TabIcon.png?raw=true" alt="Logo BugFarm Tech" class="logo">
+            </button>
+            <button class="btn-menu btn-toggle">☰</button>
+        </div>
+
+        <p id="DarkText">Ferramentas</p>
+
+        <nav class="menu-navegacao">
+
+            <div class="menu-aberto">
+                <div class="nav-item">
+                    <a data-pagina="Index" href="Index.html">
+                        <img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/tabuleiro-de-jogo-alt.png?raw=true" alt="Dashboard" height="12" width="12">
+                        <span class="nav-label">Dashboard</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a data-pagina="lotes" href="lotes.html">
+                        <img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/garage.png?raw=true" alt="Lotes" height="12" width="12">
+                        <span class="nav-label">Lotes</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a data-pagina="Monitoramento" href="Monitoramento.html">
+                        <img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/tempo-vinte-e-quatro%20(1).png?raw=true" alt="Monitoramento" height="12" width="12">
+                        <span class="nav-label">Monitoramento</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a data-pagina="Colheita" href="colheita.html">
+                        <img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/folha.png?raw=true" alt="Colheita" height="12" width="12">
+                        <span class="nav-label">Colheita</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a data-pagina="Alimentacao" href="alimentacao.html">
+                        <img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/cenoura.png?raw=true" alt="Alimentação" height="12" width="12">
+                        <span class="nav-label">Alimentação</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="menu-fechado">
+                <a data-pagina="Index" href="Index.html"><img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/tabuleiro-de-jogo-alt.png?raw=true" alt="Dashboard"></a>
+                <a data-pagina="lotes" href="lotes.html"><img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/garage.png?raw=true" alt="Lotes"></a>
+                <a data-pagina="Monitoramento" href="Monitoramento.html"><img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/tempo-vinte-e-quatro%20(1).png?raw=true" alt="Monitoramento"></a>
+                <a data-pagina="Colheita" href="colheita.html"><img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/folha.png?raw=true" alt="Colheita"></a>
+                <a data-pagina="Alimentacao" href="alimentacao.html"><img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/cenoura.png?raw=true" alt="Alimentação"></a>
+            </div>
+
+            <!-- Perfil vertical (sidebar recolhida) -->
+            <div class="profile-recolhido">
+                <img id="pfp-mini" src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/bugtechicon.png?raw=true" alt="PFP">
+                <button class="settings-btn settings-btn-mini"><img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/Sett.png?raw=true" alt="Settings"></button>
+            </div>
+
+            <!-- Perfil horizontal (sidebar aberta) -->
+            <div class="profile">
+                <img id="pfp" src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/bugtechicon.png?raw=true" alt="PFP">
+                <span id="username">User</span>
+                <button id="login-btn">Login</button>
+                <button class="settings-btn"><img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/Sett.png?raw=true" alt="Settings"></button>
+            </div>
+
+        </nav>
+    </aside>
+
+    <!-- ===================== OVERLAY DE BLOQUEIO ===================== -->
+    <div id="overlay-bloqueio" class="overlay-bloqueio">
+        <p>Faça login para acessar o sistema.</p>
+    </div>
+
+    <!-- ===================== MODAL DE LOGIN ===================== -->
+    <div id="modal-login" class="modal-backdrop">
+        <div class="modal-caixa">
+            <div class="modal-header">
+                <img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/bugtechicon.png?raw=true" alt="Logo" height="40">
+                <h2>BugFarm Tech</h2>
+                <p>Acesso ao Sistema de Gestão Biológica</p>
+            </div>
+            <form id="form-login-modal">
+                <div class="grupo-input">
+                    <label for="input-usuario">Usuário</label>
+                    <input type="text" id="input-usuario" placeholder="Ex: admin" autocomplete="username" required>
+                </div>
+                <div class="grupo-input">
+                    <label for="input-senha">Senha</label>
+                    <input type="password" id="input-senha" placeholder="Sua senha" autocomplete="current-password" required>
+                </div>
+                <div id="erro-login" class="erro-login" style="display:none;">
+                    Usuário ou senha incorretos.
+                </div>
+                <button type="submit" class="btn-login-submit">Entrar</button>
+                <p class="modal-dica">Seja bem-Vindo!</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================== CONTEUDO PRINCIPAL ===================== -->
+    <main class="conteudo-principal">
+        <header class="cabecalho-pagina">
+            <h1>Gestão de Lotes de Insetos</h1>
+            <p>Cadastre novos ovos e acompanhe o ciclo de vida do berçário.</p>
+        </header>
+
+        <div id="lote-feedback"></div>
+
+        <div class="layout-duas-colunas">
+            <!-- COLUNA 1: Formulário de Cadastro -->
+            <section class="card-formulario">
+                <h3>➕ Novo Berçário (Cadastro)</h3>
+
+                <form id="formCadastroLote" class="form-padrao">
+
+                    <div class="grupo-input">
+                        <label for="tipoInseto">Espécie do Inseto:</label>
+                        <select id="tipoInseto" name="tipoInseto" required>
+                            <option value="" disabled selected>Selecione a espécie...</option>
+                            <option value="Grilo">Grilos (Acheta domesticus)</option>
+                            <option value="Larva">Larvas (Tenebrio molitor)</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="dataEclosao">Data de Eclosão (Nascimento):</label>
+                        <input type="date" id="dataEclosao" name="dataEclosao" required>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="quantidadeInicial">Quantidade Inicial (em Kg):</label>
+                        <input type="number" id="quantidadeInicial" name="quantidadeInicial" step="0.1" min="0.1" placeholder="Ex: 1.5" required>
+                    </div>
+
+                    <button type="submit" class="btn-primario">Registrar Lote</button>
+                </form>
+            </section>
+
+            <!-- COLUNA 2: Lista de Lotes Ativos -->
+            <section class="card-tabela">
+                <h3>📋 Lotes em Crescimento</h3>
+                <div class="tabela-responsiva">
+                    <table class="tabela-dados">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Espécie</th>
+                                <th>Data Eclosão</th>
+                                <th>Status Atual</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaLotesBody">
+                            <tr>
+                                <td colspan="4" class="texto-centro">Nenhum lote cadastrado ainda.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

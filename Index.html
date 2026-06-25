@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BugFarm Tech - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/1518998115464646907/1519053796330835989/image.png?ex=6a3c2897&is=6a3ad717&hm=b153044a63b88095b1882a178318b01d886a221ba22b311fffdb2baa599b2258&animated=true">
+</head>
+<body>
+<div class="container">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar">
+
+        <div class="TABBER">
+            <button id="but" class="Noutline btn-toggle">
+                <img id="logo" src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/TabIcon.png?raw=true" alt="Logo BugFarm Tech" class="logo">
+            </button>
+            <button class="btn-menu btn-toggle">☰</button>
+        </div>
+
+        <p id="DarkText">Ferramentas</p>
+
+        <nav class="menu-navegacao">
+
+            <div class="menu-aberto">
+                <div class="nav-item">
+                    <a data-pagina="Index" href="Index.html">
+                        <img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/tabuleiro-de-jogo-alt.png?raw=true" alt="Dashboard" height="12" width="12">
+                        <span class="nav-label">Dashboard</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a data-pagina="lotes" href="lotes.html">
+                        <img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/garage.png?raw=true" alt="Lotes" height="12" width="12">
+                        <span class="nav-label">Lotes</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a data-pagina="Monitoramento" href="Monitoramento.html">
+                        <img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/tempo-vinte-e-quatro%20(1).png?raw=true" alt="Monitoramento" height="12" width="12">
+                        <span class="nav-label">Monitoramento</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a data-pagina="Colheita" href="colheita.html">
+                        <img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/folha.png?raw=true" alt="Colheita" height="12" width="12">
+                        <span class="nav-label">Colheita</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a data-pagina="Alimentacao" href="alimentacao.html">
+                        <img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/cenoura.png?raw=true" alt="Alimentação" height="12" width="12">
+                        <span class="nav-label">Alimentação</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="menu-fechado">
+                <a data-pagina="Index" href="Index.html"><img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/tabuleiro-de-jogo-alt.png?raw=true" alt="Dashboard"></a>
+                <a data-pagina="lotes" href="lotes.html"><img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/garage.png?raw=true" alt="Lotes"></a>
+                <a data-pagina="Monitoramento" href="Monitoramento.html"><img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/tempo-vinte-e-quatro%20(1).png?raw=true" alt="Monitoramento"></a>
+                <a data-pagina="Colheita" href="colheita.html"><img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/folha.png?raw=true" alt="Colheita"></a>
+                <a data-pagina="Alimentacao" href="alimentacao.html"><img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/cenoura.png?raw=true" alt="Alimentação"></a>
+            </div>
+
+            <!-- Perfil vertical (sidebar recolhida) -->
+            <div class="profile-recolhido">
+                <img id="pfp-mini" src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/bugtechicon.png?raw=true" alt="PFP">
+                <button class="settings-btn settings-btn-mini"><img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/Sett.png?raw=true" alt="Settings"></button>
+            </div>
+
+            <!-- Perfil horizontal (sidebar aberta) -->
+            <div class="profile">
+                <img id="pfp" src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/bugtechicon.png?raw=true" alt="PFP">
+                <span id="username">User</span>
+                <button id="login-btn">Login</button>
+                <button class="settings-btn"><img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/Sett.png?raw=true" alt="Settings"></button>
+            </div>
+
+        </nav>
+    </aside>
+
+    <!-- ===================== OVERLAY DE BLOQUEIO ===================== -->
+    <div id="overlay-bloqueio" class="overlay-bloqueio">
+        <p>Faça login para acessar o sistema.</p>
+    </div>
+
+    <!-- ===================== MODAL DE LOGIN ===================== -->
+    <div id="modal-login" class="modal-backdrop">
+        <div class="modal-caixa">
+            <div class="modal-header">
+                <img src="https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/bugtechicon.png?raw=true" alt="Logo" height="40">
+                <h2>BugFarm Tech</h2>
+                <p>Acesso ao Sistema de Gestão Biológica</p>
+            </div>
+            <form id="form-login-modal">
+                <div class="grupo-input">
+                    <label for="input-usuario">Usuário</label>
+                    <input type="text" id="input-usuario" placeholder="Ex: admin" autocomplete="username" required>
+                </div>
+                <div class="grupo-input">
+                    <label for="input-senha">Senha</label>
+                    <input type="password" id="input-senha" placeholder="Sua senha" autocomplete="current-password" required>
+                </div>
+                <div id="erro-login" class="erro-login" style="display:none;">
+                    Usuário ou senha incorretos.
+                </div>
+                <button type="submit" class="btn-login-submit">Entrar</button>
+                <p class="modal-dica">Seja bem-Vindo!</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================== CONTEUDO PRINCIPAL ===================== -->
+    <main class="conteudo-principal">
+        <header>
+            <h1>Painel Geral de Monitoramento</h1>
+            <p>Bem-vindo ao sistema de rastreamento biológico.</p>
+        </header>
+
+        <section class="cards-resumos">
+            <div class="card">
+                <h3>Total de Lotes Ativos</h3>
+                <p id="totalLotes" class="indicador">0</p>
+                <span>Lotes em cativeiro</span>
+            </div>
+            <div class="card">
+                <h3>Média de Temp. (10 dias)</h3>
+                <p id="tempMediaGlobal" class="indicador">-- °C</p>
+                <span>Status: <strong id="statusSanitario">Verificando...</strong></span>
+            </div>
+        </section>
+    </main>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

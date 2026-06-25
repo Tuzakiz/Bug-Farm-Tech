@@ -1,0 +1,1282 @@
+/* ==========================================================================
+   INICIO: RESET E BASE
+   ========================================================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: rgb(43, 43, 43);
+}
+
+/* FIM: RESET E BASE */
+
+
+/* ==========================================================================
+   INICIO: CONTAINER PRINCIPAL
+   ========================================================================== */
+
+.container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
+    gap: 0px;
+    overflow: hidden;
+    background-color: #d3d3d3;
+}
+
+/* FIM: CONTAINER PRINCIPAL */
+
+
+/* ==========================================================================
+   INICIO: CONTEUDO PRINCIPAL
+   ========================================================================== */
+
+.conteudo-principal {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    padding: 20px;
+    background-color: rgb(24, 24, 24);
+    color: rgb(255, 255, 255);
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* FIM: CONTEUDO PRINCIPAL */
+
+
+/* ==========================================================================
+   INICIO: SIDEBAR - ESTRUTURA BASE
+   ========================================================================== */
+
+.sidebar {
+    background-color: rgb(31, 31, 31);
+    flex-direction: column;
+    padding: 0px 0px 0px 15px;
+    width: 200px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+    white-space: nowrap;
+    transition: width 0.3s ease, padding 0.3s ease;
+}
+
+/* FIM: SIDEBAR - ESTRUTURA BASE */
+
+
+/* ==========================================================================
+   INICIO: SIDEBAR - ESTADO RECOLHIDO
+   ========================================================================== */
+
+.sidebar.escondido {
+    width: 50px;
+    padding-left: 5px;
+    color: transparent;
+}
+
+.sidebar.escondido .logo,
+.sidebar.escondido #DarkText,
+.sidebar.escondido #username,
+.sidebar.escondido #login-btn,
+.sidebar.escondido .menu-aberto {
+    display: none !important;
+}
+
+/* menu-navegacao permanece visível no estado recolhido
+   pois o menu-fechado vive dentro dele */
+
+.sidebar.escondido .menu-fechado {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 25px;
+    padding-right: 5px;
+}
+
+.sidebar.escondido .menu-fechado a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    margin: 0 auto;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.sidebar.escondido .menu-fechado img {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+}
+
+.sidebar.escondido .btn-menu {
+    margin-left: 12px;
+    margin-top: 4px;
+    top: 24px;
+    color: transparent;
+}
+
+.sidebar.escondido .profile {
+    width: calc(100% - 16px);
+    left: 8px;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.sidebar.escondido #pfp {
+    margin-right: 0px;
+    margin-bottom: 4px;
+}
+
+.sidebar.escondido .settings-btn {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 6px;
+}
+
+/* FIM: SIDEBAR - ESTADO RECOLHIDO */
+
+
+/* ==========================================================================
+   INICIO: TABBER (TOPO DA SIDEBAR)
+   ========================================================================== */
+
+.TABBER {
+    display: flex;
+    justify-content: left;
+    transition: all 0.3s ease;
+}
+
+.TABBER.escondido {
+    display: none;
+}
+
+/* FIM: TABBER (TOPO DA SIDEBAR) */
+
+
+/* ==========================================================================
+   INICIO: BOTAO MENU (HAMBURGUER)
+   ========================================================================== */
+
+.btn-menu {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    display: flex;
+    justify-content: right;
+    position: absolute;
+    top: 24px;
+    margin-left: 150px;
+    transition: all 0.3s ease;
+    content: url('https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/grid.png?raw=true');
+    padding: 0px;
+}
+
+.btn-menu:hover {
+    background-color: rgb(43, 43, 43);
+    border-radius: 5px;
+    outline: 1px solid rgb(117, 117, 117);
+    outline-offset: 2px;
+    content: url('https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/Sidebar-selected.png?raw=true');
+}
+
+/* FIM: BOTAO MENU (HAMBURGUER) */
+
+
+/* ==========================================================================
+   INICIO: LOGO DA SIDEBAR
+   ========================================================================== */
+
+.logo {
+    content: url('https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/bugtechicon.png?raw=true');
+    height: 49px;
+    padding: 10px 0px 0px 0px;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, padding 0.3s ease, outline 0.3s ease, outline-offset 0.3s ease;
+}
+
+.logo:hover {
+    content: url('https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/BugtechTab.png?raw=true');
+    background-color: rgb(43, 43, 43);
+    padding: 10px 10px 5px 10px;
+    outline: 1px solid rgba(117, 117, 117, 0.37);
+    outline-offset: 2px;
+}
+
+#but {
+    background-color: rgb(31, 31, 31);
+    border: none;
+    padding: 0px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.Noutline {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+/* FIM: LOGO DA SIDEBAR */
+
+
+/* ==========================================================================
+   INICIO: MENU DE NAVEGACAO
+   ========================================================================== */
+
+.menu-fechado {
+    display: none;
+}
+
+.nav-label,
+a {
+    gap: 5px;
+    color: rgb(211, 211, 211);
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+}
+
+.nav-item {
+    display: block;
+    align-items: left;
+    margin-bottom: 1px;
+    transition: background-color 0.3s ease, padding 0.2s ease-in-out;
+}
+
+.nav-item:hover {
+    background-color: rgb(43, 43, 43);
+    border-radius: 5px;
+    padding: 3px;
+}
+
+a.nav-item.ativo {
+    background-color: rgb(43, 43, 43);
+    border-radius: 5px;
+    padding: 3px;
+    color: rgb(255, 255, 255);
+}
+
+#DarkText {
+    color: rgb(154, 154, 154);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#Links {
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+}
+
+/* FIM: MENU DE NAVEGACAO */
+
+
+/* ==========================================================================
+   INICIO: PERFIL (RODAPE DA SIDEBAR)
+   ========================================================================== */
+
+.profile {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    width: calc(100% - 30px);
+    left: 5px;
+    bottom: 10px;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.profile:hover {
+    background-color: rgb(54, 54, 54);
+    outline: 1px solid rgb(154, 154, 154);
+    outline-offset: 2px;
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+
+.profile span {
+    color: rgb(154, 154, 154);
+    font-size: 10px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+    margin-right: auto;
+    gap: 10px;
+}
+
+#pfp {
+    outline: 0.125rem dotted rgb(44, 44, 44);
+    outline-offset: 1px;
+    background-color: rgb(24, 24, 24);
+    margin-right: 10px;
+    padding: 6px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+#login-btn {
+    background-color: transparent;
+    color: rgb(154, 154, 154);
+    width: 40px;
+    outline: 1px solid rgb(154, 154, 154);
+    border: 1px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    padding: 2px 6px;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+#login-btn:hover {
+    color: rgb(211, 211, 211);
+}
+
+#login-btn.btn-logout-ativo {
+    width: 24px;
+    height: 24px;
+    padding: 4px;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+#login-btn.btn-logout-ativo:hover {
+    background-color: rgba(255, 77, 77, 0.12);
+    outline: 1px solid rgba(255, 77, 77, 0.5);
+    outline-offset: 2px;
+}
+
+.icone-logout {
+    width: 16px;
+    height: 16px;
+    display: block;
+    pointer-events: none;
+}
+
+/* FIM: PERFIL (RODAPE DA SIDEBAR) */
+
+
+/* ==========================================================================
+   INICIO: BOTAO SETTINGS
+   ========================================================================== */
+
+.settings-btn {
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.settings-btn img {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    content: url('https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/cogwheel.png?raw=true');
+    transition: all 0.3s ease;
+}
+
+.settings-btn img:hover {
+    background-color: rgb(43, 43, 43);
+    border-radius: 50%;
+    outline: 1px solid rgb(117, 117, 117);
+    outline-offset: 2px;
+    content: url('https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/Sett.png?raw=true');
+}
+
+/* FIM: BOTAO SETTINGS */
+
+
+/* ==========================================================================
+   INICIO: BOTOES GERAIS
+   ========================================================================== */
+
+button {
+    background-color: rgb(31, 31, 31);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+label {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #f5f5f5;
+}
+
+/* FIM: BOTOES GERAIS */
+
+
+/* ==========================================================================
+   INICIO: CARDS DO DASHBOARD (INDEX)
+   ========================================================================== */
+
+.cards-resumos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: rgb(31, 31, 31);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: rgb(154, 154, 154);
+}
+
+.card .indicador {
+    font-size: 36px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin: 5px 0;
+}
+
+.card span {
+    font-size: 12px;
+    color: rgb(154, 154, 154);
+}
+
+/* FIM: CARDS DO DASHBOARD (INDEX) */
+
+
+/* ==========================================================================
+   INICIO: TIPOGRAFIA DO CONTEUDO PRINCIPAL
+   ========================================================================== */
+
+.conteudo-principal h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(43, 43, 43);
+    padding-bottom: 10px;
+    color: rgb(255, 255, 255);
+}
+
+.conteudo-principal h3 {
+    font-size: 16px;
+    color: rgb(211, 211, 211);
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.conteudo-principal section {
+    background-color: rgb(31, 31, 31);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.conteudo-principal hr {
+    border: 0;
+    height: 1px;
+    background: rgb(43, 43, 43);
+    margin: 30px 0;
+}
+
+.conteudo-principal ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.conteudo-principal ul li {
+    background: rgb(43, 43, 43);
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: rgb(180, 180, 180);
+    border-left: 3px solid rgb(154, 154, 154);
+}
+
+/* FIM: TIPOGRAFIA DO CONTEUDO PRINCIPAL */
+
+
+/* ==========================================================================
+   INICIO: TABELA
+   ========================================================================== */
+
+.conteudo-principal table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 13px;
+    text-align: left;
+}
+
+.conteudo-principal th {
+    background-color: rgb(43, 43, 43);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 12px 10px;
+    border-bottom: 2px solid rgb(24, 24, 24);
+    transition: all 0.3s ease;
+}
+
+.conteudo-principal td {
+    padding: 10px;
+    border-bottom: 1px solid rgb(43, 43, 43);
+    color: rgb(211, 211, 211);
+    vertical-align: middle;
+    transition: all 0.3s ease;
+}
+
+.conteudo-principal tr {
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.conteudo-principal tr:hover {
+    background-color: rgb(38, 38, 38);
+}
+
+/* FIM: TABELA */
+
+
+/* ==========================================================================
+   INICIO: BADGES DE STATUS
+   ========================================================================== */
+
+.status-badge {
+    background-color: rgba(68, 255, 68, 0.1);
+    color: #44ff44;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.status-badge-aprovado {
+    background-color: rgba(68, 255, 68, 0.1);
+    color: #44ff44;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.status-badge-bloqueado {
+    background-color: rgba(255, 77, 77, 0.1);
+    color: #ff4d4d;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.status-badge-crescimento {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: #3498db;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+/* FIM: BADGES DE STATUS */
+
+
+/* ==========================================================================
+   INICIO: BOTOES DE ACAO NA TABELA
+   ========================================================================== */
+
+.conteudo-principal table button {
+    background-color: #44ff44;
+    color: rgb(24, 24, 24);
+    border: none;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.conteudo-principal table button:hover:not(:disabled) {
+    background-color: #33cc33;
+}
+
+.conteudo-principal table button:disabled {
+    background-color: rgb(43, 43, 43);
+    color: rgb(117, 117, 117);
+    cursor: not-allowed;
+    border: 1px solid rgb(54, 54, 54);
+}
+
+/* FIM: BOTOES DE ACAO NA TABELA */
+
+
+/* ==========================================================================
+   INICIO: BOTOES DE COLHEITA
+   ========================================================================== */
+
+.btn-colheita {
+    background-color: #44ff44;
+    color: rgb(24, 24, 24);
+    border: none;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-colheita:hover:not(:disabled) {
+    background-color: #33cc33;
+}
+
+.btn-colheita:disabled {
+    background-color: rgb(43, 43, 43);
+    color: rgb(117, 117, 117);
+    cursor: not-allowed;
+    border: 1px solid rgb(54, 54, 54);
+}
+
+/* FIM: BOTOES DE COLHEITA */
+
+
+/* ==========================================================================
+   INICIO: FORMULARIOS
+   ========================================================================== */
+
+.conteudo-principal fieldset {
+    border: 1px solid rgb(43, 43, 43);
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.conteudo-principal legend {
+    color: rgb(154, 154, 154);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.conteudo-principal form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.conteudo-principal form div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.conteudo-principal input,
+.conteudo-principal select {
+    background-color: rgb(24, 24, 24);
+    border: 1px solid rgb(54, 54, 54);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.conteudo-principal input:focus,
+.conteudo-principal select:focus {
+    border-color: rgb(117, 117, 117);
+}
+
+.conteudo-principal button[type="submit"] {
+    background-color: rgb(43, 43, 43);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(117, 117, 117);
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+.conteudo-principal button[type="submit"]:hover {
+    background-color: rgb(54, 54, 54);
+    outline: 1px solid rgb(154, 154, 154);
+    outline-offset: 2px;
+}
+
+/* FIM: FORMULARIOS */
+
+
+/* ==========================================================================
+   INICIO: MONITORAMENTO - STATUS GERAL
+   ========================================================================== */
+
+.status-geral-container {
+    background-color: rgb(31, 31, 31);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.barra-progresso-bg {
+    background-color: rgb(24, 24, 24);
+    height: 12px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 12px 0;
+    border: 1px solid rgb(43, 43, 43);
+}
+
+.barra-progresso-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3498db, #44ff44);
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+}
+
+.status-legendas {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgb(154, 154, 154);
+}
+
+/* FIM: MONITORAMENTO - STATUS GERAL */
+
+
+/* ==========================================================================
+   INICIO: MONITORAMENTO - CARDS DE GRAFICOS
+   ========================================================================== */
+
+.grid-graficos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.card-grafico {
+    background-color: rgb(31, 31, 31);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.card-grafico h4 {
+    margin: 0 0 5px 0;
+    font-size: 13px;
+    color: rgb(154, 154, 154);
+}
+
+.card-grafico .valor-metrica {
+    font-size: 26px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin-bottom: 15px;
+}
+
+/* FIM: MONITORAMENTO - CARDS DE GRAFICOS */
+
+
+/* ==========================================================================
+   INICIO: MONITORAMENTO - MEDIDOR DE ZONAS
+   ========================================================================== */
+
+.medidor-zonas-container {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    margin-bottom: 8px;
+    padding: 5px 0;
+}
+
+.barra-zonas {
+    display: flex;
+    width: 100%;
+    height: 14px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: rgb(24, 24, 24);
+    border: 1px solid rgb(54, 54, 54);
+}
+
+.zona {
+    height: 100%;
+}
+
+.zona-perigo-frio,
+.zona-perigo-seco   { width: 30%; background-color: #ff4d4d; transition: all 0.3s ease; }
+.zona-ideal         { width: 50%; background-color: #44ff44; }
+.zona-alerta-calor,
+.zona-alerta-umido  { width: 20%; background-color: #ffd214; transition: all 0.3s ease; }
+
+.zona-alerta-calor:hover,
+.zona-alerta-umido:hover,
+.zona-perigo-frio:hover,
+.zona-perigo-seco:hover,
+.zona-ideal:hover {
+    padding: 20px;
+}
+
+.ponteiro-marcador {
+    position: absolute;
+    top: 2px;
+    width: 6px;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
+    transform: translateX(-50%);
+    transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #000;
+}
+
+.legendas-zonas {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    padding-top: 5px;
+}
+
+/* FIM: MONITORAMENTO - MEDIDOR DE ZONAS */
+
+
+/* ==========================================================================
+   INICIO: MODAL DE LOGIN
+   ========================================================================== */
+
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-caixa {
+    background-color: rgb(31, 31, 31);
+    border: 1px solid rgb(54, 54, 54);
+    border-radius: 12px;
+    padding: 40px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.modal-header h2 {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin: 10px 0 4px 0;
+    border: none;
+    padding: 0;
+}
+
+.modal-header p {
+    color: rgb(154, 154, 154);
+    font-size: 12px;
+    margin: 0;
+}
+
+.modal-caixa .grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.modal-caixa label {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(154, 154, 154);
+}
+
+.modal-caixa input {
+    background-color: rgb(24, 24, 24);
+    border: 1px solid rgb(54, 54, 54);
+    color: rgb(255, 255, 255);
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.modal-caixa input:focus {
+    border-color: rgb(117, 117, 117);
+}
+
+.erro-login {
+    background: rgba(255, 77, 77, 0.1);
+    border-left: 3px solid #ff4d4d;
+    color: #ff4d4d;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+}
+
+.btn-login-submit {
+    width: 100%;
+    background-color: rgb(43, 43, 43);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(117, 117, 117);
+    padding: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 4px;
+}
+
+.btn-login-submit:hover {
+    background-color: rgb(54, 54, 54);
+    outline: 1px solid rgb(154, 154, 154);
+    outline-offset: 2px;
+}
+
+.modal-dica {
+    text-align: center;
+    font-size: 11px;
+    color: rgb(100, 100, 100);
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+/* FIM: MODAL DE LOGIN */
+
+
+/* ==========================================================================
+   INICIO: OVERLAY DE BLOQUEIO
+   ========================================================================== */
+
+.overlay-bloqueio {
+    display: none;
+    position: fixed;
+    inset: 0 0 0 200px; /* começa depois da sidebar */
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 500;
+    justify-content: center;
+    align-items: center;
+    color: rgb(154, 154, 154);
+    font-size: 13px;
+    pointer-events: none;
+}
+
+.sidebar.escondido ~ .overlay-bloqueio,
+.sidebar.escondido + * + .overlay-bloqueio {
+    left: 50px;
+}
+
+/* FIM: OVERLAY DE BLOQUEIO */
+
+
+/* ==========================================================================
+   INICIO: PERFIL RECOLHIDO (VERTICAL)
+   ========================================================================== */
+
+.profile-recolhido {
+    display: none; /* escondido por padrão */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#pfp-mini {
+    outline: 0.125rem dotted rgb(44, 44, 44);
+    outline-offset: 1px;
+    background-color: rgb(24, 24, 24);
+    padding: 6px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.sidebar.escondido .profile {
+    display: none;
+}
+
+.sidebar.escondido .profile-recolhido {
+    display: flex;
+}
+
+.settings-btn-mini {
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.settings-btn-mini:hover {
+    background-color: rgb(43, 43, 43);
+    outline: 1px solid rgb(117, 117, 117);
+    outline-offset: 2px;
+}
+
+.settings-btn-mini img {
+    height: 14px;
+    width: 14px;
+    content: url('https://github.com/Tuzakiz/Bug-Farm-Tech/blob/main/cogwheel.png?raw=true');
+}
+
+/* FIM: PERFIL RECOLHIDO */
+
+
+/* ==========================================================================
+   INICIO: HOVER DOS ICONES NO MENU FECHADO
+   ========================================================================== */
+
+.sidebar.escondido .menu-fechado a {
+    border-radius: 6px;
+    transition: background-color 0.2s ease, outline 0.2s ease;
+}
+
+.sidebar.escondido .menu-fechado a:hover {
+    background-color: rgb(43, 43, 43);
+    outline: 1px solid rgb(117, 117, 117);
+    outline-offset: 2px;
+}
+
+/* FIM: HOVER DOS ICONES NO MENU FECHADO */
+
+
+/* ==========================================================================
+   INICIO: LAYOUT DUAS COLUNAS (LOTES)
+   ========================================================================== */
+
+.layout-duas-colunas {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.texto-centro {
+    text-align: center;
+    color: rgb(154, 154, 154);
+    padding: 20px;
+}
+
+/* FIM: LAYOUT DUAS COLUNAS */
+
+
+/* ==========================================================================
+   INICIO: PAGINA LOTES - CABECALHO E CARDS
+   ========================================================================== */
+
+.cabecalho-pagina {
+    margin-bottom: 25px;
+}
+
+.cabecalho-pagina h1 {
+    margin: 0 0 6px 0;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+}
+
+.cabecalho-pagina p {
+    margin: 0;
+    color: rgb(154, 154, 154);
+    font-size: 13px;
+}
+
+.card-formulario,
+.card-tabela {
+    background-color: rgb(31, 31, 31);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.card-formulario h3,
+.card-tabela h3 {
+    margin: 0 0 18px 0;
+    font-size: 15px;
+    color: rgb(211, 211, 211);
+    border-bottom: 1px solid rgb(43, 43, 43);
+    padding-bottom: 10px;
+}
+
+.form-padrao {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.btn-primario {
+    background-color: #44ff44;
+    color: rgb(24, 24, 24);
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    align-self: flex-start;
+    margin-top: 6px;
+}
+
+.btn-primario:hover {
+    background-color: #33cc33;
+}
+
+.tabela-responsiva {
+    overflow-x: auto;
+}
+
+.tabela-dados {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4px;
+    font-size: 13px;
+    text-align: left;
+}
+
+.tabela-dados th {
+    background-color: rgb(43, 43, 43);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 12px 10px;
+    border-bottom: 2px solid rgb(24, 24, 24);
+}
+
+.tabela-dados td {
+    padding: 10px;
+    border-bottom: 1px solid rgb(43, 43, 43);
+    color: rgb(211, 211, 211);
+    vertical-align: middle;
+}
+
+.tabela-dados tr:hover {
+    background-color: rgb(38, 38, 38);
+}
+
+@media (max-width: 900px) {
+    .layout-duas-colunas {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* FIM: PAGINA LOTES - CABECALHO E CARDS */
+
+
+/* ==========================================================================
+   INICIO: PAGINA ALIMENTACAO - DETALHES
+   ========================================================================== */
+
+.conteudo-principal textarea {
+    background-color: rgb(24, 24, 24);
+    border: 1px solid rgb(54, 54, 54);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+.conteudo-principal textarea:focus {
+    border-color: rgb(117, 117, 117);
+}
+
+.conteudo-principal button[type="reset"] {
+    background-color: transparent;
+    color: rgb(154, 154, 154);
+    border: 1px solid rgb(54, 54, 54);
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.conteudo-principal button[type="reset"]:hover {
+    background-color: rgb(43, 43, 43);
+    color: rgb(211, 211, 211);
+}
+
+/* FIM: PAGINA ALIMENTACAO - DETALHES */

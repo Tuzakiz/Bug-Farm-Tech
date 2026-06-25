@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BugFarm Tech - Monitoramento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="conteudo-principal">
+    <header>
+        <h1>Monitoramento em Tempo Real</h1>
+        <p>Sensores IoT — Estufa 01</p>
+    </header>
+
+    <div id="monitoramento-feedback"></div>
+
+    <section class="status-geral-container">
+        <h3>Estabilidade Geral da Estufa</h3>
+        <div class="barra-progresso-bg">
+            <div id="barra-estabilidade" class="barra-progresso-fill" style="width: 85%;"></div>
+        </div>
+        <div class="status-legendas">
+            <span>Operação: <strong>85% Estável</strong></span>
+            <span>Ambiente: <strong>Seguro</strong></span>
+        </div>
+    </section>
+
+    <div class="grid-graficos">
+
+        <div class="card-grafico">
+            <h4>Temperatura Atual — Estufa 01</h4>
+            <div class="valor-metrica">25.6°C</div>
+            <div class="medidor-zonas-container">
+                <div class="barra-zonas">
+                    <div class="zona zona-perigo-frio"></div>
+                    <div class="zona zona-ideal"></div>
+                    <div class="zona zona-alerta-calor"></div>
+                </div>
+                <div id="ponteiro-temp" class="ponteiro-marcador" style="left: 56%;"></div>
+            </div>
+            <div class="legendas-zonas">
+                <span style="color:#ff4d4d;">Frio</span>
+                <span style="color:#44ff44;">Ideal (22–26°C)</span>
+                <span style="color:#ffd214;">Quente</span>
+            </div>
+        </div>
+
+        <div class="card-grafico">
+            <h4>Umidade Relativa</h4>
+            <div class="valor-metrica">65%</div>
+            <div class="medidor-zonas-container">
+                <div class="barra-zonas">
+                    <div class="zona zona-perigo-seco"></div>
+                    <div class="zona zona-ideal"></div>
+                    <div class="zona zona-alerta-umido"></div>
+                </div>
+                <div id="ponteiro-umi" class="ponteiro-marcador" style="left: 65%;"></div>
+            </div>
+            <div class="legendas-zonas">
+                <span style="color:#ff4d4d;">Seco</span>
+                <span style="color:#44ff44;">Ideal (60–70%)</span>
+                <span style="color:#ffd214;">Úmido</span>
+            </div>
+        </div>
+
+    </div>
+
+    <section>
+        <h2>Histórico de Leituras — Sensores IoT</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data/Hora</th>
+                    <th>Sensor ID</th>
+                    <th>Temperatura</th>
+                    <th>Umidade</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>24/06/2026 16:00</td><td>SNS-001</td><td>26.0°C</td><td>64%</td><td><span class="status-badge">Operacional</span></td></tr>
+                <tr><td>24/06/2026 15:00</td><td>SNS-001</td><td>25.8°C</td><td>65%</td><td><span class="status-badge">Operacional</span></td></tr>
+                <tr><td>24/06/2026 14:00</td><td>SNS-001</td><td>25.5°C</td><td>66%</td><td><span class="status-badge">Operacional</span></td></tr>
+                <tr><td>24/06/2026 13:00</td><td>SNS-002</td><td>24.9°C</td><td>67%</td><td><span class="status-badge">Operacional</span></td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Calibração de Sensores</h2>
+        <form>
+            <fieldset>
+                <legend>Atualizar Leitura Manual</legend>
+                <div class="grupo-input">
+                    <label for="sensor-id">Sensor</label>
+                    <select id="sensor-id" name="sensor_id" required>
+                        <option value="SNS-001">SNS-001 (Estufa Central)</option>
+                        <option value="SNS-002">SNS-002 (Berçário)</option>
+                    </select>
+                </div>
+                <div class="grupo-input">
+                    <label for="temp-atual">Temperatura Atual (°C)</label>
+                    <input type="number" id="temp-atual" name="temp_atual" step="0.1" placeholder="Ex: 25.6" required>
+                </div>
+                <div class="grupo-input">
+                    <label for="umidade-atual">Umidade Atual (%)</label>
+                    <input type="number" id="umidade-atual" name="umidade_atual" placeholder="Ex: 65" required>
+                </div>
+                <button type="submit">Atualizar Calibração</button>
+            </fieldset>
+        </form>
+    </section>
+
+</main>
+</body>
+</html>
